@@ -1,10 +1,7 @@
-lcdinit
-textout -1 -1 "Debian for WM8505 Netbooks" ffffff
-textout -1 -1 "by lrussell887" c0c0c0
-textout -1 -1 "" 000000
-
-textout -1 -1 "Loading Kernel..." 808080
-fatload mmc 0 0 /script/uzImage.bin
-textout -1 -1 "Starting Linux..." 808080
-setenv bootargs root=/dev/mmcblk0p2 rw noinitrd console=tty1 rootwait audit=0
+display init force
+mmcinit 0
+textout -1 -1 \"Loading kernel...\" FFFFFF
+fatload mmc 0 0 /uzImage.bin
+textout -1 -1 \"Booting Debian...\" FFFFFF
+setenv bootargs mem=212M root=/dev/mmcblk0p2 noinitrd rw console=ttyWMT0,115200 console=tty1 earlyprintk rootwait audit=0
 bootm 0
